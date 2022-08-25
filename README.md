@@ -27,3 +27,10 @@ For instance:
 ]
 ```
 
+Also you need to configure assets folder on pubspec.yaml:
+
+```yaml
+  assets:
+    - images/
+    - assets/vault/secrets.json
+```
