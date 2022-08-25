@@ -38,6 +38,7 @@ dependencies:
   logger: ^1.1.0
   http: ^0.13.5
   flutter_spinkit: ^5.1.0
+  vault: ^0.0.3
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +94,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - images/
+    - assets/vault/secrets.json
 
   fonts:
     - family: Roboto

@@ -36,6 +36,5 @@ const kTextFieldInputDecoration = InputDecoration(
   ),
 );
 
-const String appid = '0e1ba6a9adf8a6cc75b086c7a68acecc';
 const weatherAuthority = 'openweathermap.org';
 const weatherAPIAuthority = 'api.openweathermap.org';
