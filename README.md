@@ -14,3 +14,16 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Vault
+You need to create vault secrets for openweather.org in assets/vault/secrets.json.
+
+For instance:
+```json
+[
+  {
+    "appid": "0e1ba6a9adf8a6cc75b086c7a68acecc"
+  }
+]
+```
+
