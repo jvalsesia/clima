@@ -1,5 +1,6 @@
 import 'package:clima/screens/location_screen.dart';
 import 'package:clima/services/networking.dart';
+import 'package:clima/services/weather.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -31,15 +32,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocation() async {
-    Location location = Location();
-    await location.getCurrentLocation();
-    loggerNoStack.d('latitude: ${location.latitude}');
-    loggerNoStack.d('longitude: ${location.longitude}');
+    dynamic weatherData = await Weather().getLocationWeather();
 
-    String url =
-        'https://$weatherAPIAuthority/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$appid&units=metric';
-    Networking networking = Networking(url);
-    var weatherData = await networking.getData();
+    if (!mounted) return;
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(
@@ -50,11 +45,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: SpinKitDoubleBounce(
-          color: Colors.white,
-          size: 100.0,
+    return const SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: SpinKitDoubleBounce(
+            color: Colors.white,
+            size: 100.0,
+          ),
         ),
       ),
     );
